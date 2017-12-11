@@ -1,0 +1,16 @@
+﻿@model DroseroMVC.ViewModels.CategoryViewModel
+
+<div>
+    <ul class="navigation"/>
+    @foreach (var category in Model.Categories)
+    {
+        <li>
+            <input type="button" 
+                   onClick="magazineUI.onCategoryClick(@category.Id)"
+                   id="@category.Id" value="@category.Name"
+                   class="categoryButton"/> 
+        </li>
+    }
+    
+</div>
+

@@ -1,0 +1,24 @@
+﻿@using Newtonsoft.Json
+@model DroseroMVC.ViewModels.FoodItemViewModel
+    
+<table>
+    @foreach (var food in Model.FoodItems)
+    {
+        <tr>
+            <td class="col-lg-2 foodItemName">@food.Name</td>
+            <td class="col-lg-2 foodItemName">@food.Description</td>
+            <td class="col-lg-2 foodItemName">@food.Price.ToString()</td>
+            <td class="col-lg-2 foodItemName">
+                <input type="button" value="add to cart" onclick="magazineUI.onAddToCart(@food.Id)"
+                       class="categoryButton"/>
+            </td>
+        </tr>
+    }
+</table>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var data = @Html.Raw(JsonConvert.SerializeObject(Model.FoodItems));
+        magazineUI.foodItemsByCategory = data;
+    });
+</script>

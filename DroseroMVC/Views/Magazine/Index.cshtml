@@ -1,0 +1,39 @@
+﻿@using Newtonsoft.Json
+@model DroseroMVC.ViewModels.MagazineViewModel
+@{
+    ViewBag.Title = Model.PageTitle;
+}
+
+<div>
+    <div class="row topcorner dropdown">
+        <input type="button" id="cart" value="Cart" onclick="magazineUI.onloadCartItems" />
+        <div id="addToCart" class="dropdown-content">
+            @{ Html.RenderPartial(@"~\Views\Magazine\_AddToCart.cshtml", Model.CartItemsViewModel); }
+        </div>
+        
+    </div>
+    
+    <div class="row">
+        @{ Html.RenderPartial(@"~\Views\Magazine\_Categories.cshtml", Model.CategoryViewModel); }
+    </div>
+    <hr/>
+    <div class="row">
+        <span data-bind="text:PageTitle" />
+    </div>
+    <hr/>
+    <div class="row">
+        <div id="foodByCategory" class="row">
+
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/knockout-3.4.2.js"></script>
+<script src="~/Scripts/knockout.mapping-latest.js"></script>
+@Scripts.Render("~/bundles/Magazine")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        magazineUI.init(@Html.Raw(JsonConvert.SerializeObject(Model)));
+    });
+</script>
