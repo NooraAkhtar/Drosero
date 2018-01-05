@@ -1,17 +1,97 @@
 ﻿@{
-    ViewBag.Title = "Contact";
+    ViewBag.Title = "Contact Us";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
 <address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
+    Drosero Cafe & Restro<br />
+    #23-24, 1st Floor, Above Axis Bank<br />
+    Orbit Plaza, Crossing Republik, Ghaziabad<br/>
+    <abbr title="Phone">Mobile: +9197171670527, +918210993997</abbr>
+    <br/>
+    <abbr title="Email">Email: support@droserocafe.com</abbr>
 </address>
 
 <address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+    @*<strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>*@
 </address>
+
+<br/>
+
+@*<div class="panel-body" style="right:inherit">
+    <form name="reservationForm" action="">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10">
+                    Book a table with us!
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-1">
+                    Name:
+                </div>
+                <div class="col-xs-4">
+                    <input type="text" name="customerName" class="input-sm" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-1">
+                    Mobile:
+                </div>
+                <div class="col-xs-4">
+                    <input type="tel" name="customerMobile" class="input-sm" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-1">
+                    Count:
+                </div>
+                <div class="col-xs-4">
+                    <input type="number" name="customerCount"
+                           class="webkit-outer-inner-button counter" min="2" max="8" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-1">
+                    Time:
+                </div>
+                <div class="col-xs-4">
+                    <input type="datetime-local" id="reservationTime" name="reservationTime"
+                           useCurrent="true"
+                           class="dateTime" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-1">
+                    <input class="w3-button" id="reservation"
+                           type="submit" onclick="onBookMyTable(this.form)" value="Book My Table">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>*@
+
+<script src="~/Scripts/jquery-1.10.2.min.js" ></script>
+
+@Scripts.Render("~/bundles/Reservation")
+@*<script type="text/javascript">
+    function onBookMyTable(formData) {
+        var reservationDate = formData.reservationTime.value;
+        var currentDate = new Date();
+
+        if (reservationDate < currentDate || reservationDate > currentDate + 1) {
+            alert('Reservation Date');
+            return;
+        }
+
+        var customer = {
+            "name": formData.customerName.value,
+            "mobile": formData.customerMobile.value,
+            "count": formData.customerCount.value,
+            "reservationDate": reservationDate
+        };
+        reservationUI.onReservation(customer);
+    }
+</script>*@

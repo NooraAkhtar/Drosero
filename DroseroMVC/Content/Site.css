@@ -1,12 +1,14 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-image: url('images/backgroundCoffee.jpg');
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -1733,17 +1735,23 @@ a {
 .categoryButton {
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
-    background: white;
+    background: black;
     border: none;
-    color: black;
-    padding: 15px 32px;
-    text-align: center;
+    color: white;    
+    text-align: left;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 14px;
+    width:auto;
 }
 
 .categoryButton:hover {
-    background-color: #e7e7e7; /* Green */
-    color: white;
+    background-color: #e7e7e7;
+    color: black;
+}
+
+.navBarCategory {
+    padding: 0px;
+    text-align: left;
+    margin:2px;
 }

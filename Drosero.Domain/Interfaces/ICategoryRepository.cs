@@ -8,5 +8,7 @@ namespace Drosero.Domain.Interfaces
 {
     public interface ICategoryRepository<T>: IBaseRepository<T>
     {
+        IList<T> GetSubCategories(int id);
+
     }
 }

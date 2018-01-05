@@ -1,0 +1,23 @@
+﻿
+
+<div>
+    <ul class="navigation navbar" id="subCategoryItems" data-bind="foreach: subCategories.Categories">
+        <li>
+            <span data-bind="text: Name"/>
+            @*<input type="button" data-bind="value: $data.Name" class="categoryButton"/>*@
+                   @*onClick="magazineUI.onSubCategoryClick(@category.Id)"
+                   id="@category.Id" value="@category.Name"
+                   class="categoryButton"/>*@ 
+        </li>
+    </ul>
+</div>
+<div class="em-debug" data-bind="visible:true">
+        <pre>DEBUG</pre>
+        <pre data-bind="text: ko.toJSON($data, null, 2)"></pre>
+    </div>
+
+@*<script type="text/javascript">
+    $(document).ready(function () {
+        magazineUI.onSubCategoryLoaded(Model.Categories.FoodItems)
+    });
+</script>*@

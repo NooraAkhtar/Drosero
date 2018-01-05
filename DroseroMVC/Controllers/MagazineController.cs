@@ -15,10 +15,9 @@ namespace DroseroMVC.Controllers
         private MagazineMediator magazineMediator;
         private ICategoryService<Category> categoryService;
         IFoodItemService<FoodItem> foodItemService;
-        public MagazineController()
+        public MagazineController(ICategoryService<Category> categoryService, IFoodItemService<FoodItem> foodItemService)
         {
-            magazineMediator = new MagazineMediator(new CategoryService<Category>(new CategoryRepository<Category>()), 
-                new FoodItemService<FoodItem>(new FoodItemRepository<FoodItem>()));
+            magazineMediator = new MagazineMediator(categoryService,foodItemService);
         }
 
         // GET: Magazine
@@ -34,7 +33,7 @@ namespace DroseroMVC.Controllers
         public JsonResult GetCategories()
         {
             var viewModel = magazineMediator.GetCategoryViewModel();
-            return new JsonResult {Data = viewModel};
+            return Json(viewModel);
         }
 
         [HttpPost]
@@ -42,7 +41,14 @@ namespace DroseroMVC.Controllers
         {
             var viewModel = magazineMediator.GetFoodItemsByCategory(categoryId);
             return PartialView("_FoodByCategory", viewModel);
-            //return new JsonResult {Data = viewModel};
+         
+        }
+
+        [HttpPost]
+        public JsonResult GetSubCategories(int id)
+        {
+            var viewModel = magazineMediator.GetSubCategories(id);
+            return new JsonResult { Data = viewModel };
         }
     }
 }

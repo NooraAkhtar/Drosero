@@ -38,5 +38,14 @@ namespace DroseroMVC.Mediators
 
             return foodItemViewModel;
         }
+
+        public CategoryViewModel GetSubCategories(int id)
+        {
+            var viewModel = new CategoryViewModel
+            {
+                Categories = categoryService.GetSubCategories(id)
+            };
+            return viewModel;
+        }
     }
 }

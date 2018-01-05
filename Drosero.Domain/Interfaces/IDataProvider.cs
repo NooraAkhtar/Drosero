@@ -15,7 +15,7 @@ namespace Drosero.Domain.Interfaces
 
         DataTable GetById(SqlCommand sqlCommand);
 
-        int Save(SqlCommand sqlCommand);
+        SqlCommand Save(SqlCommand sqlCommand);
 
         int Delete(SqlCommand sqlCommand);
     }

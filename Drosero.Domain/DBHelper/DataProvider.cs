@@ -15,9 +15,10 @@ namespace Drosero.Domain.DBHelper
     {
         private string connectionString;
 
-        public DataProvider()
+        public DataProvider(string connectionString)
         {
-            this.connectionString =  @"Data Source=indbanl175\droserodatabase;Initial Catalog=droseroDB;Persist Security Info=True;User ID=sa;Password=paSSw0rd";
+            this.connectionString = connectionString;
+            //this.connectionString =  @"Data Source=indbanl175\droserodatabase;Initial Catalog=droseroDB;Persist Security Info=True;User ID=sa;Password=paSSw0rd";
         }
 
         public DataTable GetAll(SqlCommand sqlCommand)
@@ -38,8 +39,6 @@ namespace Drosero.Domain.DBHelper
             var dataSet = new DataSet();
             try
             {
-                var connectionString =
-                    @"Data Source=indbanl175\droserodatabase;Initial Catalog=droseroDB;Persist Security Info=True;User ID=sa;Password=paSSw0rd";
                 using (var connection = new SqlConnection(connectionString))
                 {
                     sqlCommand.Connection = connection;
@@ -57,17 +56,29 @@ namespace Drosero.Domain.DBHelper
             return dataSet.Tables[0];
         }
 
-        public int Save(SqlCommand sqlCommand)
+        public SqlCommand Save(SqlCommand sqlCommand)
         {
             return DBExecuteNonQuery(sqlCommand);
         }
 
         public int Delete(SqlCommand sqlCommand)
         {
-           return DBExecuteNonQuery(sqlCommand);
+           return DBExecuteNonQueryDelete(sqlCommand);
         }
 
-        private int DBExecuteNonQuery(SqlCommand sqlCommand)
+        private SqlCommand DBExecuteNonQuery(SqlCommand sqlCommand)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                sqlCommand.Connection = connection;
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Connection.Open();
+                sqlCommand.ExecuteNonQuery(); 
+            }
+            return sqlCommand;
+        }
+
+        private int DBExecuteNonQueryDelete(SqlCommand sqlCommand)
         {
             var result = 0;
             using (var connection = new SqlConnection(connectionString))
@@ -76,7 +87,6 @@ namespace Drosero.Domain.DBHelper
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Connection.Open();
                 result = sqlCommand.ExecuteNonQuery();
-                
             }
             return result;
         }

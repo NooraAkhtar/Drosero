@@ -9,13 +9,13 @@ magazineUI = {
       magazineUI.magazineViewModel = ko.mapping.fromJS(viewModel);
       magazineUI.magazineViewModel.totalCartValue = ko.observable(0.0);
       magazineUI.magazineViewModel.foodItemsByCategory = ko.observable();
+      magazineUI.magazineViewModel.subCategories = ko.observable();
       
       addToCartViewModel(magazineUI.magazineViewModel);
 
       magazineUI.bindingApplied = true;
       ko.applyBindings(magazineUI.magazineViewModel);
     }
-
     magazineUI.getDefaultCategorySelection();
   },
 
@@ -34,6 +34,24 @@ magazineUI = {
   onCategoryClick: function (id) {
     magazineUI.magazineViewModel.PageTitle(magazineUI.getCategoryById(id));
     magazineRepository.loadFoodItemByCategory(id);
+  },
+
+  onSubCategoryClick: function (id) {
+    magazineRepository.loadFoodItemByCategory(id);
+  },
+
+  getSubCategories: function (id) {
+    magazineRepository.getSubCategories(id);
+  },
+
+  onSuccessSubCategories: function (data) {
+    debugger;
+    $("#subCategories").data(data);
+    //magazineUI.magazineViewModel.subCategories = ko.observable(data);
+  },
+
+  onSubCategoryLoaded: function (data) {
+    //var firstSubCategory = data[0].
   },
 
   onAddToCart: function (id) {
@@ -80,6 +98,17 @@ magazineRepository = {
       data: { 'categoryId': categoryId },
       success: function(data) {
         magazineUI.onSuccessFoodByCategory(data);
+      }
+    });
+  }, 
+
+  getSubCategories: function (id) {
+    $.ajax({
+      url: '/DroseroMVC/Magazine/GetSubCategories',
+      method: "GET",
+      data: { 'id': id },
+      success: function (data) {
+        magazineUI.onSuccessSubCategories(data);
       }
     });
   }

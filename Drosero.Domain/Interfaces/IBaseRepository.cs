@@ -14,5 +14,6 @@ namespace Drosero.Domain.Interfaces
         T Save(T item);
 
         bool Delete(int id);
+
     }
 }

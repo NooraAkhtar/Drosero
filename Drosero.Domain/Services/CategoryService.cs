@@ -32,6 +32,11 @@ namespace Drosero.Domain.Services
             return categoryRepository.GetById(id);
         }
 
+        public IList<T> GetSubCategories(int id)
+        {
+            return categoryRepository.GetSubCategories(id);
+        }
+
         public T Save(T item)
         {
             return categoryRepository.Save(item);

@@ -12,9 +12,9 @@ namespace Drosero.Domain.Repositories
     {
         IDataProvider dataProvider ;
 
-        public CategoryRepository()
+        public CategoryRepository(IDataProvider dataProvider)
         {
-            dataProvider = new DataProvider();
+            this.dataProvider = dataProvider;
         }
 
         public bool Delete(int id)
@@ -56,6 +56,25 @@ namespace Drosero.Domain.Repositories
             //item.Name = "Desserts";
 
             return item;
+        }
+
+        public IList<T> GetSubCategories(int id)
+        {
+            var dbCommand = new SqlCommand("spSubCategoryGetAll");
+            dbCommand.Parameters.AddWithValue("id", id);
+            var dataTable = dataProvider.GetById(dbCommand);
+            var categories = new List<T>();
+            if (dataTable != null)
+            {
+                foreach (DataRow dataRow in dataTable.Rows)
+                {
+                    var item = new T();
+                    item.Id = Convert.ToInt32(dataRow["Id"]);
+                    item.Name = Convert.ToString(dataRow["categoryName"]);
+                    categories.Add(item);
+                }
+            }
+            return categories;
         }
     }
 }

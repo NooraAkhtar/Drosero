@@ -36,6 +36,9 @@ namespace DroseroMVC
 
             bundles.Add(new ScriptBundle("~/bundles/Home")
                 .Include("~/Scripts/DroseroScripts/HomeBehavior.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/Reservation")
+            .Include("~/Scripts/DroseroScripts/reservationBehavior.js"));
         }
     }
 }

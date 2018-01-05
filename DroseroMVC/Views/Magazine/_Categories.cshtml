@@ -1,7 +1,7 @@
 ﻿@model DroseroMVC.ViewModels.CategoryViewModel
 
 <div>
-    <ul class="navigation"/>
+    <ul class="navigation navbar navBarCategory">
     @foreach (var category in Model.Categories)
     {
         <li>
@@ -11,6 +11,6 @@
                    class="categoryButton"/> 
         </li>
     }
-    
+    </ul>
 </div>
 

@@ -18,16 +18,18 @@ namespace Drosero.Domain.Repositories
     {
         public IDataProvider dataProvider { get; set; }
 
-        public FoodItemRepository()
+        public FoodItemRepository(IDataProvider dataProvider)
         {
-            dataProvider = new DataProvider();
+            //dataProvider = new DataProvider();
+            this.dataProvider = dataProvider;
         }
 
         public bool Delete(int id)
         {
             var dbCommand = new SqlCommand();
             dbCommand.Parameters.AddWithValue("id", id);
-            return dataProvider.Delete(dbCommand)>0;
+
+            return dataProvider.Delete(dbCommand) > 0;
         }
 
         public IList<T> GetAll()
@@ -44,7 +46,7 @@ namespace Drosero.Domain.Repositories
                     item.Name = Convert.ToString(dataRow["foodName"]);
                     item.Description = Convert.ToString(dataRow["description"]);
                     item.CategoryId= Convert.ToInt32(dataRow["dategoryId"]);
-                    item.Price= Convert.ToDecimal(dataRow["price"]);
+                    item.Price= Convert.ToString(dataRow["price"]);
                     foodItems.Add(item);
                 }
             }
@@ -67,7 +69,7 @@ namespace Drosero.Domain.Repositories
                     item.Name = Convert.ToString(dataRow["Name"]);
                     item.Description = Convert.ToString(dataRow["Description"]);
                     item.CategoryId = Convert.ToInt32(dataRow["CategoryId"]);
-                    item.Price = Convert.ToDecimal(dataRow["Price"]);
+                    item.Price = Convert.ToString(dataRow["Price"]);
                     return item;
                 }
             }
@@ -77,13 +79,13 @@ namespace Drosero.Domain.Repositories
         public T Save(T item)
         {
             var dbCommand = new SqlCommand("spCategorySave");
-            dbCommand.Parameters.AddWithValue("id", item.Id);
-            dbCommand.Parameters.AddWithValue("name", item.Name);
-            dbCommand.Parameters.AddWithValue("description", item.Description);
-            dbCommand.Parameters.AddWithValue("categoryId", item.CategoryId);
-            dbCommand.Parameters.AddWithValue("price", item.Price);
-
-            item.Id = dataProvider.Save(dbCommand);
+            dbCommand.Parameters.Add(new SqlParameter { ParameterName = "id", Value = item.Id, Direction = ParameterDirection.InputOutput });
+            dbCommand.Parameters.Add(new SqlParameter { ParameterName = "name", Value = item.Name });
+            dbCommand.Parameters.Add(new SqlParameter { ParameterName = "description", Value = item.Description });
+            dbCommand.Parameters.Add(new SqlParameter { ParameterName = "categoryId", Value = item.CategoryId });
+            dbCommand.Parameters.Add(new SqlParameter { ParameterName = "price", Value = item.Price });
+            dbCommand = dataProvider.Save(dbCommand);
+            item.Id = (int)dbCommand.Parameters["id"].Value;
 
             return item;
         }
@@ -103,7 +105,7 @@ namespace Drosero.Domain.Repositories
                     item.Name = Convert.ToString(dataRow["foodName"]);
                     item.Description = Convert.ToString(dataRow["Description"]);
                     item.CategoryId = Convert.ToInt32(dataRow["CategoryId"]);
-                    item.Price = Convert.ToDecimal(dataRow["Price"]);
+                    item.Price = Convert.ToString(dataRow["Price"]);
                     foodItems.Add(item);
                 }
             }

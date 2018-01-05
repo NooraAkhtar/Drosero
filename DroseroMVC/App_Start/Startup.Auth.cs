@@ -58,11 +58,11 @@ namespace DroseroMVC
             //   appId: "",
             //   appSecret: "");
 
-            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            {
-                ClientId = "1098993361646-2pooigbuofn0ebapt7jh7s7d9q2ev5lt.apps.googleusercontent.com",
-                ClientSecret = "WbIzla4Am9VNaggV4eFx5yDT"
-            });
+            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            //{
+            //    ClientId = "1098993361646-2pooigbuofn0ebapt7jh7s7d9q2ev5lt.apps.googleusercontent.com",
+            //    ClientSecret = "WbIzla4Am9VNaggV4eFx5yDT"
+            //});
         }
     }
 }
