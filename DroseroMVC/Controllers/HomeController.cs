@@ -1,16 +1,4 @@
-﻿using Drosero.Domain.Interfaces;
-using Drosero.Domain.Models;
-using DroseroMVC.Mediators;
-using DroseroMVC.Models;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using Twilio.Rest.Api.V2010.Account;
-using Twilio.Types;
+﻿using System.Web.Mvc;
 
 namespace DroseroMVC.Controllers
 {
