@@ -6946,3 +6946,11 @@ td.visible-print {
 .categoryTable {
     width: 100%
 }
+
+.zeroPadding{
+    padding:0px;
+}
+
+.displayInline {
+    display: inline;
+}

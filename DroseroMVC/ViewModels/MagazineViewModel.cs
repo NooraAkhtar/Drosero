@@ -25,5 +25,7 @@ namespace DroseroMVC.ViewModels
         }
 
         public FoodItemViewModel CartItemsViewModel { get; set; } = new FoodItemViewModel();
+
+        public string ErrorMessage { get; set; }
     }
 }

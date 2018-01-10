@@ -7,21 +7,27 @@
 <div>
     <div class="row topcorner dropdown">
         @*<input type="button" id="cart" value="Cart" onclick="magazineUI.onloadCartItems" />
-    <div id="addToCart" class="dropdown-content">
-        @{ Html.RenderPartial(@"~\Views\Magazine\_AddToCart.cshtml", Model.CartItemsViewModel); }
-    </div>*@        
+            <div id="addToCart" class="dropdown-content">
+                @{ Html.RenderPartial(@"~\Views\Magazine\_AddToCart.cshtml", Model.CartItemsViewModel); }
+            </div>*@
     </div>
+
     <div class="panel-body">
-        <div>
-            @{ Html.RenderPartial(@"~\Views\Magazine\_Categories.cshtml", Model.CategoryViewModel); }
+        <div class="panel-info">
+            <div>@Model.ErrorMessage</div>
         </div>
+       
+        @if (Model.CategoryViewModel.Categories != null && Model.CategoryViewModel.Categories.Count > 0)
+        {
+            { Html.RenderPartial(@"~\Views\Magazine\_Categories.cshtml", Model.CategoryViewModel); }
+        }
         <hr />
         <div class="row" style="margin-left:8px; font-weight:bold;font-size:medium">
             <span data-bind="text:PageTitle" />
         </div>
         <hr />
         <div>
-            <div id="foodByCategory" class="row"/>
+            <div id="foodByCategory" class="row" />
         </div>
     </div>
 </div>

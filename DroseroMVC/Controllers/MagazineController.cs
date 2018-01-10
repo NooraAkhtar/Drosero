@@ -7,6 +7,7 @@ using Drosero.Domain.Models;
 using Drosero.Domain.Repositories;
 using Drosero.Domain.Services;
 using Unity.Attributes;
+using System;
 
 namespace DroseroMVC.Controllers
 {
@@ -23,11 +24,31 @@ namespace DroseroMVC.Controllers
         // GET: Magazine
         public ActionResult Index()
         {
-            var viewModel = new MagazineViewModel
+            var viewModel = new MagazineViewModel { CategoryViewModel = new CategoryViewModel()};
+            try
             {
-                CategoryViewModel = magazineMediator.GetCategoryViewModel(),
-            };
+                viewModel.CategoryViewModel = magazineMediator.GetCategoryViewModel();
+            }
+            catch (System.Exception e)
+            {
+                viewModel.ErrorMessage = e.Message;
+            }
             return View(viewModel);
+        }
+
+        private string GetInnerException(Exception e)
+        {
+            var message = string.Empty;
+            if(e.InnerException!=null)
+            {
+                message += "\n" + GetInnerException(e.InnerException);
+
+            }
+            else
+            {
+                message = e.Message;
+            }
+            return message;
         }
 
         public JsonResult GetCategories()

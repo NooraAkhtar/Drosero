@@ -50,7 +50,7 @@ namespace Drosero.Domain.DBHelper
             }
             catch (Exception e)
             {
-                throw;
+                throw e;
             }
            
             return dataSet.Tables[0];

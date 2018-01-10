@@ -93,7 +93,7 @@ var magazineRepository = magazineRepository || {};
 magazineRepository = {
   loadFoodItemByCategory: function(categoryId) {
     $.ajax({
-      url: '/DroseroMVC/Magazine/GetFoodItemsByCategory',
+      url: '/Magazine/GetFoodItemsByCategory',
       method: "POST",
       data: { 'categoryId': categoryId },
       success: function(data) {
@@ -104,7 +104,7 @@ magazineRepository = {
 
   getSubCategories: function (id) {
     $.ajax({
-      url: '/DroseroMVC/Magazine/GetSubCategories',
+      url: '/Magazine/GetSubCategories',
       method: "GET",
       data: { 'id': id },
       success: function (data) {
