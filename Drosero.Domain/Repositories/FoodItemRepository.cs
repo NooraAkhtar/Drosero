@@ -66,8 +66,8 @@ namespace Drosero.Domain.Repositories
                 {
                     var item = new T();
                     item.Id = Convert.ToInt32(dataRow["Id"]);
-                    item.Name = Convert.ToString(dataRow["Name"]);
-                    item.Description = Convert.ToString(dataRow["Description"]);
+                    item.Name = Convert.ToString(dataRow["Name"]).Trim();
+                    item.Description = Convert.ToString(dataRow["Description"]).Trim();
                     item.CategoryId = Convert.ToInt32(dataRow["CategoryId"]);
                     item.Price = Convert.ToString(dataRow["Price"]);
                     return item;

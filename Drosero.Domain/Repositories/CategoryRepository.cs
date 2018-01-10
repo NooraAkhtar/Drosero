@@ -33,7 +33,7 @@ namespace Drosero.Domain.Repositories
                 {
                     var item = new T();
                     item.Id = Convert.ToInt32(dataRow["Id"]);
-                    item.Name = Convert.ToString(dataRow["categoryName"]);
+                    item.Name = Convert.ToString(dataRow["categoryName"]).Trim();
                     categories.Add(item);
                 }
             }

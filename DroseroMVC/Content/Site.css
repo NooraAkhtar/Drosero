@@ -671,6 +671,15 @@ a {
     .w3-col.m12 {
         width: 99.99999%
     }
+
+    .zeroPadding {
+        padding: 0px;
+        list-style-type: none;
+    }
+
+    .displayInline {
+        display: block;
+    }
 }
 
 @media (min-width:993px) {
@@ -720,6 +729,15 @@ a {
 
     .w3-col.l12 {
         width: 99.99999%
+    }
+
+    .zeroPadding {
+        padding: 0px;
+        list-style-type: none;
+    }
+
+    .displayInline {
+        display: block;
     }
 }
 
@@ -795,6 +813,15 @@ a {
         .w3-dropdown-hover.w3-mobile, .w3-dropdown-hover.w3-mobile .w3-btn, .w3-dropdown-hover.w3-mobile .w3-button, .w3-dropdown-click.w3-mobile, .w3-dropdown-click.w3-mobile .w3-btn, .w3-dropdown-click.w3-mobile .w3-button {
             width: 100%
         }
+
+    .zeroPadding {
+        padding: 0px;
+        list-style-type: none;
+    }
+
+    .displayInline {
+        display: block;
+    }
 }
 
 @media (max-width:768px) {
@@ -804,6 +831,15 @@ a {
 
     .w3-modal {
         padding-top: 50px
+    }
+
+    .zeroPadding {
+        padding: 0px;
+        list-style-type: none;
+    }
+
+    .displayInline {
+        display: block;
     }
 }
 
@@ -819,11 +855,29 @@ a {
     .w3-sidebar.w3-collapse {
         display: block !important
     }
+
+    .zeroPadding {
+        padding: 0px;
+        list-style-type: none;
+    }
+
+    .displayInline {
+        display: block;
+    }
 }
 
 @media (max-width:992px) and (min-width:601px) {
     .w3-hide-medium {
         display: none !important
+    }
+
+    .zeroPadding {
+        padding: 0px;
+        list-style-type: none;
+    }
+
+    .displayInline {
+        display: block;
     }
 }
 
@@ -835,6 +889,15 @@ a {
     .w3-main {
         margin-left: 0 !important;
         margin-right: 0 !important
+    }
+
+    .zeroPadding {
+        padding: 0px;
+        list-style-type: none;
+    }
+
+    .displayInline {
+        display: block;
     }
 }
 
@@ -1735,14 +1798,14 @@ a {
 .categoryButton {
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
-    background: black;
+    background: #101010;
     border: none;
-    color: white;    
+    color: white;
     text-align: left;
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
-    width:auto;
+    width: auto;
 }
 
 .categoryButton:hover {
@@ -1755,4 +1818,12 @@ a {
     text-align: left;
     margin:2px;
     list-style:none;
+}
+
+.zeroPadding {
+    padding: 0px;
+}
+
+.displayInline {
+    display: inline;
 }
