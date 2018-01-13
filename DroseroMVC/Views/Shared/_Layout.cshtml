@@ -31,14 +31,15 @@
                     <li>@Html.ActionLink("About Us", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
                 </ul>
-                @Html.Partial("_LoginPartial")
+                <div style="padding-left:10px; padding-right:10px">
+                    @Html.Partial("_LoginPartial")
+                </div>
             </div>
         </div>
     </div>
     <div class="container body-content" >
-        
-        <div style="background-color:black;color:white;">
-            @RenderBody()            
+        <div class="siteBackForeground">
+            <div class="padding-left-right-10">@RenderBody()</div>
         </div>
         <hr />
         <footer style="background-color:black; color:white">

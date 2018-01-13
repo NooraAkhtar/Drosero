@@ -16,7 +16,7 @@
         <div class="panel-info">
             <div>@Model.ErrorMessage</div>
         </div>
-        <div style="position:fixed; top:50px;background-color:#101010; min-height:50px;z-index:1020;">
+        <div style="position:fixed; top:70px;background-color:#101010; min-height:50px;z-index:1020;">
             @if (Model.CategoryViewModel.Categories != null && Model.CategoryViewModel.Categories.Count > 0)
             {
                 { Html.RenderPartial(@"~\Views\Magazine\_Categories.cshtml", Model.CategoryViewModel); }
