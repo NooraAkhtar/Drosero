@@ -238,11 +238,13 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MagazineController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TriviaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Mediators\MagazineMediator.cs" />
     <Compile Include="Mediators\ReservationMediator.cs" />
+    <Compile Include="Mediators\TriviaMediator.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -251,6 +253,7 @@
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\FoodItemViewModel.cs" />
     <Compile Include="ViewModels\MagazineViewModel.cs" />
+    <Compile Include="ViewModels\TriviaViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -269,6 +272,10 @@
     <Content Include="Content\images\imgLounge2.jpg" />
     <Content Include="Content\images\imgLounge3.jpg" />
     <Content Include="Content\images\imgLounge4.jpg" />
+    <Content Include="Content\images\trivias\1014.png" />
+    <Content Include="Content\images\trivias\1023.png" />
+    <Content Include="Content\images\trivias\1027.png" />
+    <Content Include="Content\images\trivias\1123.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -289,6 +296,7 @@
     <Content Include="Scripts\DroseroScripts\HomeBehavior.js" />
     <Content Include="Scripts\DroseroScripts\MagazineBehavior.js" />
     <Content Include="Scripts\DroseroScripts\reservationBehavior.js" />
+    <Content Include="Scripts\DroseroScripts\TriviaBehavior.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -344,6 +352,7 @@
     <Content Include="Views\Magazine\_FoodByCategory.cshtml" />
     <Content Include="Views\Magazine\_AddToCart.cshtml" />
     <Content Include="Views\Magazine\_SubCategories.cshtml" />
+    <Content Include="Views\Trivia\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

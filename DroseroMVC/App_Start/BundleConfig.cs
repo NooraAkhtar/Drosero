@@ -39,6 +39,9 @@ namespace DroseroMVC
 
             bundles.Add(new ScriptBundle("~/bundles/Reservation")
             .Include("~/Scripts/DroseroScripts/reservationBehavior.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/Trivia")
+            .Include("~/Scripts/DroseroScripts/TriviaBehavior.js"));
         }
     }
 }

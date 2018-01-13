@@ -1,6 +1,6 @@
 ﻿@using Newtonsoft.Json
 @model DroseroMVC.ViewModels.FoodItemViewModel
-    
+
 <table class="categoryTable" style="margin-top:150px; margin-left:20px; ">
     @foreach (var food in Model.FoodItems)
     {
@@ -9,7 +9,17 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-6 foodItemName">
-                            @food.Name
+                            @if (food.HasTrivia)
+                            {
+                                <a href='@Url.Action("GetTriviaByFoodItemId", "Trivia", new { foodItemId = food.Id})'>
+                                    <div class="glyphicon glyphicon-info-sign" title="@string.Format("How {0} originated ?", food.Name.Trim())"></div>
+                                    @food.Name
+                                </a>
+                            }
+                            else
+                            {
+                                @food.Name
+                            }
                         </div>
                         <div class="col-sm-4 foodItemPrice">
                             @food.Price
@@ -21,7 +31,7 @@
                         </div>
                     </div>
                 </div>
-                <br/>
+                <br />
             </td>
         </tr>
     }

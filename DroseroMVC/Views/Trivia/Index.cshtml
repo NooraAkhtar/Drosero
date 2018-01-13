@@ -1,0 +1,44 @@
+﻿@using Newtonsoft.Json
+@model DroseroMVC.ViewModels.TriviaViewModel
+@{
+    ViewBag.Title = "Trivia";
+}
+<div>
+    <div class="panel-heading">
+        <div>Trivia</div>
+    </div>
+    <div class="panel-body">
+        <ul>
+            @foreach (var item in Model.Trivias)
+            {
+                <li class="navBarCategory">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <span class="panel-title triviaTitle">@item.Name</span><br />
+                                <div style="margin-top:10px;">
+                                    <img src=@string.Format("/Content/images/trivias/{0}.png", @item.ImageUrl) style="height:200px;width:200px;" />
+                                </div>
+                            </div>
+                            <div class="col-md-8 ">                              
+                                <div class="triviaDesc">
+                                    <p style="white-space: pre-line">@item.Description</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/knockout-3.4.2.js"></script>
+<script src="~/Scripts/knockout.mapping-latest.js"></script>
+
+@Scripts.Render("~/bundles/Trivia")
+<script type="text/javascript">
+    $(document).ready(function () {
+        var jsonModel = '@Html.Raw(JsonConvert.SerializeObject(this.Model))';
+        triviaUI.init(jsonModel);
+    });
+</script>

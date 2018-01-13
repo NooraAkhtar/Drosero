@@ -54,6 +54,8 @@ namespace DroseroMVC
             container.RegisterType<IFoodItemRepository<FoodItem>, FoodItemRepository<FoodItem>>();
             container.RegisterType<IReservationService<Customer>, ReservationService<Customer>>();
             container.RegisterType<IReservationRepository<Customer>, ReservationRepository<Customer>>();
+            container.RegisterType<ITriviaService<Trivia>, TriviaService<Trivia>>();
+            container.RegisterType<ITriviaRepository<Trivia>, TriviaRepository<Trivia>>();
 
             container.RegisterType<AccountController>(new InjectionConstructor());
 

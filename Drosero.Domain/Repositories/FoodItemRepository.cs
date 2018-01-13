@@ -70,6 +70,8 @@ namespace Drosero.Domain.Repositories
                     item.Description = Convert.ToString(dataRow["Description"]).Trim();
                     item.CategoryId = Convert.ToInt32(dataRow["CategoryId"]);
                     item.Price = Convert.ToString(dataRow["Price"]);
+                    item.HasTrivia = Convert.ToBoolean(dataRow["HasTrivia"]);
+
                     return item;
                 }
             }
@@ -106,6 +108,7 @@ namespace Drosero.Domain.Repositories
                     item.Description = Convert.ToString(dataRow["Description"]);
                     item.CategoryId = Convert.ToInt32(dataRow["CategoryId"]);
                     item.Price = Convert.ToString(dataRow["Price"]);
+                    item.HasTrivia = dataRow["HasTrivia"] != DBNull.Value ? Convert.ToBoolean(dataRow["HasTrivia"]) : false;
                     foodItems.Add(item);
                 }
             }
