@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Drosero.Domain.Interfaces;
+using Drosero.Domain.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,9 +15,6 @@ namespace DroseroMVC
     {
         protected void Application_Start()
         {
-            //var container = Application.GetContainter();
-            //UnityConfig.RegisterComponents(container);
-
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
@@ -23,5 +22,22 @@ namespace DroseroMVC
 
             UnityConfig.RegisterTypes(UnityConfig.Container);
         }
+
+        protected void Session_Start(object sender, EventArgs e)
+        {
+            SaveHitCounter();
+        }
+
+        private int SaveHitCounter()
+        {
+            var service = UnityConfig.Container.Resolve<IApplicationService<int>>();
+            var value = 0;
+            if (service != null)
+            {
+                value = service.Save(0);
+            }
+
+            return value;
+        }       
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Drosero.Domain.Interfaces
 {
-    public interface IAddressService<T> : IBaseService<T>
+    public interface IAddressService<T> : IBaseRepository<T>
     {
     }
 }

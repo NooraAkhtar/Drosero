@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Drosero.Domain.Interfaces
 {
-    public interface ITriviaService<T> : IBaseService<T>
+    public interface ITriviaService<T> : IBaseRepository<T>
     {
         T GetByFoodItemId(int foodItemId);
         T GetByItemId(int itemId);

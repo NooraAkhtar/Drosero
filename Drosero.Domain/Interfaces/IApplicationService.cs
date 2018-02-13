@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Drosero.Domain.Interfaces
 {
-    public interface IFoodItemService<T> : IBaseRepository<T>
+    public interface IApplicationService<T>: IBaseRepository<T>
     {
-        IList<T> GetFoodItemsByCategory(int categoryId);
+
     }
 }

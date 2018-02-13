@@ -10,6 +10,10 @@ using System.Threading.Tasks;
 
 namespace Drosero.Domain.Repositories
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class TriviaRepository<T> : ITriviaRepository<T> where T : Trivia, new()
     {
         IDataProvider dataProvider;

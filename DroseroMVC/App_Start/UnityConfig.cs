@@ -57,6 +57,9 @@ namespace DroseroMVC
             container.RegisterType<ITriviaService<Trivia>, TriviaService<Trivia>>();
             container.RegisterType<ITriviaRepository<Trivia>, TriviaRepository<Trivia>>();
 
+            container.RegisterType<IApplicationService<int>, ApplicationService<int>>();
+            container.RegisterType<IApplicationRepository<int>, ApplicationRepository<int>>();
+
             container.RegisterType<AccountController>(new InjectionConstructor());
 
             var dataProvider = new DataProvider(ConfigurationManager.ConnectionStrings["connectionString"].ToString());

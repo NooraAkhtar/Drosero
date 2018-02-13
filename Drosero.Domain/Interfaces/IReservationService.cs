@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Drosero.Domain.Interfaces
 {
-    public interface IReservationService<T> : IBaseService<T>
+    public interface IReservationService<T> : IBaseRepository<T>
     {
     }
 }

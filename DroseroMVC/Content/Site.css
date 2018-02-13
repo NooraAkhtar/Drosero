@@ -1828,8 +1828,9 @@ a {
 }
 
 .triviaDesc {
-    font-size: small;
+    font-size: large;
     font-family: cursive;
+    color:rgba(241, 241, 241, 0.82)
 }
 
 .triviaTitle {
